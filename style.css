@@ -1,0 +1,86 @@
+@font-face {
+  font-family: Barlow;
+  src: url("assets/BarlowCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  color-scheme: dark;
+  --paper: #efe8d4;
+  --ink: #20211f;
+  --rule: #aaa799;
+  --muted: #c0bdaf;
+  --accent: #f3c23f;
+  --display: Barlow, "Arial Narrow", sans-serif;
+  --mono: "Courier New", monospace;
+}
+* {box-sizing:border-box}
+body {margin:0; background:var(--ink); color:var(--paper); font:1rem/1.5 var(--mono); display:grid; grid-template-columns:clamp(215px,19vw,310px) minmax(0,1fr)}
+a {color:inherit; text-underline-offset:.22em}
+a:hover {color:var(--accent)}
+:focus-visible {outline:3px solid var(--accent); outline-offset:3px}
+.skip {position:fixed; left:12px; top:-6rem; background:var(--accent); color:#161615; padding:10px; z-index:5}
+.skip:focus {top:8px}
+.profile {position:sticky; top:0; height:100vh; height:100svh; overflow:auto; border-right:1px solid var(--rule); padding:clamp(28px,5.3vw,88px) clamp(16px,1.8vw,32px) 28px; display:flex; flex-direction:column}
+h1,h2,h3,p,dl,dd,figure,blockquote,pre {margin:0}
+h1,h2,h3 {font-family:var(--display); line-height:.98}
+h1 {font-size:clamp(32px,2.85vw,51px); letter-spacing:-.03em}
+.location {margin-top:12px; font-size:.93rem}
+.facts {display:grid; gap:16px; margin:clamp(28px,6vh,70px) 0}
+dt,.eyebrow,.tech,figcaption {font-size:.72rem; letter-spacing:.07em; text-transform:uppercase}
+dt {color:var(--muted); margin-bottom:3px}
+dd {font-size:.95rem}
+.profile nav {margin-top:auto}
+.profile nav a {display:flex; align-items:center; gap:8px; min-height:44px; font-weight:bold; text-decoration:none; border-bottom:1px solid var(--rule)}
+main {min-width:0; padding:clamp(20px,2.2vw,44px) clamp(18px,2.4vw,48px) 40px}
+.eyebrow {display:flex; align-items:center; gap:15px; font-weight:bold; font-size:.9rem}
+.eyebrow::after {content:""; height:1px; flex:1; background:var(--rule)}
+h2 {font-size:clamp(4.3rem,8.8vw,10rem); letter-spacing:-.04em; margin:8px 0 25px}
+.project {border-top:1px solid var(--rule)}
+.project:last-child {border-bottom:1px solid var(--rule)}
+summary {list-style:none; display:grid; grid-template-columns:2.65em minmax(0,1fr) auto; gap:4px; align-items:center; padding:10px 14px; font-weight:bold; font-size:clamp(1.16rem,2.25vw,2.35rem); line-height:1.35; cursor:pointer}
+summary::-webkit-details-marker {display:none}
+summary:hover {background:#32332e}
+summary:focus-visible {outline-offset:-4px}
+.num {font-weight:normal;font-size:.88em}
+.arrow {font-weight:normal; transition:transform .16s}
+.project[open] > summary {color:#191a17; background:var(--accent)}
+.project[open] > summary:focus-visible {outline-color:#161615}
+.project[open] > summary .arrow {transform:rotate(90deg)}
+.spread {display:grid; grid-template-columns:minmax(0,2.15fr) minmax(0,1fr); gap:clamp(18px,2.4vw,40px); padding:clamp(22px,2.3vw,40px) 8px}
+figure {align-self:center; min-width:0}
+figure img {display:block; width:100%; height:auto}
+.diagram img {filter:grayscale(1) invert(1); mix-blend-mode:screen}
+.diagram a {display:block}
+figcaption {color:var(--muted); margin-top:12px; font-size:.67rem}
+figcaption span {text-decoration:underline; float:right}
+.note {border-left:1px solid var(--rule); padding-left:clamp(16px,1.9vw,34px)}
+h3 {font-size:clamp(1.95rem,3.1vw,3.75rem); letter-spacing:-.025em}
+.note p {margin:15px 0; font-size:clamp(.85rem,1.02vw,1rem)}
+.note .tech {font-size:.68rem;color:var(--muted)}
+.source {display:inline-block; padding:9px 0}
+.extract {padding:clamp(16px,3vw,50px); background:#181a18; border-left:2px solid var(--rule)}
+.extract figcaption {margin:0 0 20px}
+.extract blockquote {font:700 clamp(1.65rem,3.2vw,3.6rem)/1.08 var(--display)}
+.extract p {font-size:.84rem; color:var(--muted); margin:16px 0}
+code {color:#efcf7e; font-family:var(--mono)}
+pre {white-space:pre-wrap; overflow-wrap:anywhere}
+@media(max-width:960px) {
+  .spread {grid-template-columns:1fr}
+  .note {border-left:0; padding:16px 0 0; border-top:1px solid var(--rule)}
+}
+@media(max-width:700px) {
+  body {display:block}
+  .profile {height:auto; position:static; overflow:visible; border:0; border-bottom:1px solid var(--rule); padding:24px 20px 15px}
+  h1 {font-size:2.8rem}
+  .location {margin-top:6px}
+  .location br {display:none}
+  .facts {grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:23px 0 12px}
+  .profile nav {display:flex; flex-wrap:wrap; gap:20px}
+  .profile nav a {border:0; font-size:.9rem}
+  main {padding:24px 16px 32px}
+  h2 {margin-bottom:17px}
+  summary {padding:12px 6px; grid-template-columns:2em minmax(0,1fr) auto}
+  .spread {padding:18px 3px}
+}
+@media(prefers-reduced-motion:reduce){.arrow {transition:none}}
